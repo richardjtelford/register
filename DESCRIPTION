@@ -1,0 +1,20 @@
+Package: register
+Title: Makes a quiz on canvas to register attendance
+Version: 0.0.0.9000
+Authors@R: 
+    person("Richard", "Telford", , "richard.telford@uib.no", role = c("aut", "cre"))
+Description: Makes a quiz on canvas to register attendance with a qrcode and a passcode.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Depends: 
+    R (>= 3.5)
+LazyData: true
+Imports: 
+    glue,
+    httr,
+    lubridate,
+    purrr,
+    qrcode,
+    vvcanvas
