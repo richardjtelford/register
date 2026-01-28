@@ -18,7 +18,13 @@ pak::pak("richardjtelford/register")
 ## Setup
 
 You need a canvas API token for authentication. 
-To get a token, log into your canvas installation (e.g. mitt.uib.no) ...
+To get a token, log into your canvas installation (e.g. mitt.uib.no), 
+then go to Account >> Settings. 
+Scroll down slightly and click "New access token". Fill in the form and click 
+"Generate token". 
+This will then show you a token. 
+Make a copy of the token (which may span two lines) - canvas will never show 
+you this again.
 
 Then open the .Renviron file with
 
