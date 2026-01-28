@@ -18,3 +18,5 @@ Imports:
     purrr,
     qrcode,
     vvcanvas
+URL: https://github.com/richardjtelford/register
+BugReports: https://github.com/richardjtelford/register/issues
