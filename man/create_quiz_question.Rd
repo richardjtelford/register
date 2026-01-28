@@ -12,7 +12,8 @@ create_quiz_question(canvas, course_id, quiz_id, quiz_question_params)
 \item{course_id}{id number of the course.
 Go to your course home page and the number is at the end of the url.}
 
-\item{quiz_id}{The id number of the quiz. You can extract this from the output of \code{\link[=create_quiz]{create_quiz()}}.}
+\item{quiz_id}{The id number of the quiz.
+You can extract this from the output of \code{\link[=create_quiz]{create_quiz()}}.}
 
 \item{quiz_question_params}{Quiz question parameters.
 You can make these with \code{\link[=collate_question_params]{collate_question_params()}}}

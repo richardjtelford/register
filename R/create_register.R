@@ -5,15 +5,15 @@
 #' @param quiz_params Quiz parameters.
 #' You can make these with [collate_quiz_params()]
 
-#' @importFrom vvcanvas canvas_authenticate
+#' @importFrom vvcanvas canvas_authenticate update_quiz
 #' @importFrom qrcode qr_code
+#' @importFrom grDevices dev.new
 #' @export
 
 create_attendence <- function(
     course_id,
     passcode = random_passcode(adjective_noun_list = adjective_noun$norsk),
     quiz_params = collate_quiz_params()) {
-
   # authenticate
   auth <- canvas_authenticate()
 
@@ -38,10 +38,20 @@ create_attendence <- function(
     quiz_question_params = quiz_question_params
   )
 
+  # publish quiz
+  quiz2 <- update_quiz(
+    canvas = auth,
+    course_id = course_id,
+    quiz_id = quiz_id,
+    quiz_params = list(published = TRUE)
+  )
+
   # get url
   quiz_url <- quiz$mobile_url
 
   # print qrcode + passcode
+  dev.new()
   qr_code(quiz_url) |>
     plot_qrcode(main = "Please Register", passcode = passcode)
+  invisible(list(quiz = quiz, quiz2 = quiz2, question = quest))
 }

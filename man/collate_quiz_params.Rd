@@ -8,6 +8,7 @@ collate_quiz_params(
   title = glue("Registration {today()}"),
   description = "Please register your attendence with the passcode",
   quiz_type = "graded_survey",
+  unlock_at = now(),
   due_at = now() + minutes(10),
   ...
 )
@@ -18,6 +19,8 @@ collate_quiz_params(
 \item{description}{Description text}
 
 \item{quiz_type}{Type of quiz}
+
+\item{unlock_at}{Time to open the quiz. Defaults to the current time.}
 
 \item{due_at}{Deadline for quiz. Defaults to 10 minutes in the future.}
 
@@ -30,5 +33,6 @@ A list
 Collates and processes quiz parameters.
 }
 \details{
-More information about each parameter from the \href{https://developerdocs.instructure.com/services/canvas/resources/quizzes#method.quizzes/quizzes_api.create}{canvas API documentation}
+More information about each parameter from the
+\href{https://developerdocs.instructure.com/services/canvas/resources/quizzes#method.quizzes/quizzes_api.create}{canvas API documentation}
 }

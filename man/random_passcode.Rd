@@ -17,5 +17,6 @@ A length-one character vector.
 Makes a random passcode by sampling a list of adjectives and nouns
 }
 \details{
-Random adjective-noun combinations are often used to generate e.g. user names.
+Random adjective-noun combinations are used to generate user names or repo
+names by github and reddit.
 }

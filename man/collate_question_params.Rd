@@ -27,7 +27,8 @@ collate_question_params(
 
 \item{incorrect_comments}{Response for an incorrect answer}
 
-\item{answers}{The correct answer}
+\item{answers}{The correct answer(s). Optional.
+Can be a vector or a list with \code{answer_text} and optionally \code{answer_score}.}
 }
 \value{
 A list
@@ -36,5 +37,6 @@ A list
 Collates quiz question parameters.
 }
 \details{
-More information about each parameter from the \href{https://developerdocs.instructure.com/services/canvas/resources/quiz_questions#method.quizzes/quiz_questions.create}{canvas API documentation}
+More information about each parameter from the
+\href{https://developerdocs.instructure.com/services/canvas/resources/quiz_questions#method.quizzes/quiz_questions.create}{canvas API documentation}
 }

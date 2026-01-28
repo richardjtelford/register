@@ -7,6 +7,7 @@
 #' @param description Description text
 #' @param quiz_type Type of quiz
 #' @param due_at Deadline for quiz. Defaults to 10 minutes in the future.
+#' @param unlock_at Time to open the quiz. Defaults to the current time.
 #' @param \dots Extra parameters. See details
 #' @details More information about each parameter from the
 #' [canvas API documentation](https://developerdocs.instructure.com/services/canvas/resources/quizzes#method.quizzes/quizzes_api.create)
@@ -19,18 +20,21 @@ collate_quiz_params <- function(
     title = glue("Registration {today()}"),
     description = "Please register your attendence with the passcode",
     quiz_type = "graded_survey",
+    unlock_at = now(),
     due_at = now() + minutes(10),
     ...) {
   # convert due at to correct format
   due_at <- with_tz(due_at, tzone = "UTC")
   due_at <- strftime(due_at, "%Y-%m-%dT%H:%M:%S%z")
-
+  unlock_at <- with_tz(unlock_at, tzone = "UTC")
+  unlock_at <- strftime(unlock_at, "%Y-%m-%dT%H:%M:%S%z")
   # return list
   list(
     title = title,
     description = description,
     quiz_type = quiz_type,
     due_at = due_at,
+    unlock_at = unlock_at,
     ...
   )
 }
