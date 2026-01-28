@@ -8,7 +8,8 @@
 #' @param quiz_type Type of quiz
 #' @param due_at Deadline for quiz. Defaults to 10 minutes in the future.
 #' @param \dots Extra parameters. See details
-#' @details More information about each parameter from the [canvas API documentation](https://developerdocs.instructure.com/services/canvas/resources/quizzes#method.quizzes/quizzes_api.create)
+#' @details More information about each parameter from the
+#' [canvas API documentation](https://developerdocs.instructure.com/services/canvas/resources/quizzes#method.quizzes/quizzes_api.create)
 #' @returns A list
 #' @importFrom glue glue
 #' @importFrom lubridate today now minutes with_tz
@@ -45,8 +46,11 @@ collate_quiz_params <- function(
 #' @param position Integer setting question order
 #' @param correct_comments Response for a correct answer
 #' @param incorrect_comments Response for an incorrect answer
-#' @param answers The correct answer
-#' @details More information about each parameter from the [canvas API documentation](https://developerdocs.instructure.com/services/canvas/resources/quiz_questions#method.quizzes/quiz_questions.create)
+#' @param answers The correct answer(s). Optional.
+#' Can be a vector or a list with `answer_text` and optionally `answer_score`.
+#' @details More information about each parameter from the
+#' [canvas API documentation](https://developerdocs.instructure.com/services/canvas/resources/quiz_questions#method.quizzes/quiz_questions.create)
+#' @importFrom purrr map
 #' @returns A list
 #' @export
 
@@ -57,10 +61,7 @@ collate_question_params <- function(
     position = 1,
     correct_comments = "Thankyou",
     incorrect_comments = "Please check your passcode carefully",
-    answers = NULL
-) {
-
-
+    answers = NULL) {
   # make return list
   params <- list(
     question_name = question_name,
@@ -70,8 +71,12 @@ collate_question_params <- function(
     correct_comments = correct_comments,
     incorrect_comments = incorrect_comments
   )
-  if(!is.null(answers)){
-    params$answers <- glue("[{{\"answer_text\" = \"{answers}\"}}]")
+  if (!is.null(answers)) {
+    if (is.list(answers)) {
+      params$answers <- answers
+    } else {
+      params$answers <- map(answers, \(x) list(answer_text = x))
+    }
   }
 
   params
