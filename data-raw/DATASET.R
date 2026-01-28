@@ -8,7 +8,8 @@ adjective_noun$norsk <- list(
     "svart", "rosa", "lilla", "hvit", "brun", "lys", "glad", "snill", "sulten",
     "fin", "rik", "rolig", "trist", "morsom", "rask", "ren", "skitten", "smart",
     "modig", "pen", "sjelden", "sunn", "fargerik", "klar", "lat", "full", "tom",
-    "kraftig", "frisk", "lystig", "dyr", "billig", "lang"),
+    "kraftig", "frisk", "lystig", "dyr", "billig", "lang"
+  ),
   noun = c(
     "Piggsvin", "Villsvin", "Moskusfe", "Hjort", "Elg", "Rein", "Hvithval",
     "Narhval", "Nise", "Spekkhogger", "Grindhval", "Finnhval", "Gaupe", "Ulv",
@@ -17,12 +18,13 @@ adjective_noun$norsk <- list(
     "Orrfugl", "Storfugl", "Storlom", "Havhest", "Havsule", "Trane", "Tjeld",
     "Vipe", "Storjo", "Krykkje", "Lomvi", "Alke", "Lunde", "Hubro", "Kattugle",
     "Isfugl", "Svarttrost", "Spettmeis", "Ravn", "Bokfink", "Gulspurv",
-    "Dompap") |> tolower()
+    "Dompap"
+  ) |> tolower()
 )
 
 adjective_noun$english <- list(
   adjective = c(
-    "happy", "red", "blue", "pink", "green","white", "black", "dirty", "sad",
+    "happy", "red", "blue", "pink", "green", "white", "black", "dirty", "sad",
     "funny", "cheap", "clean", "fast", "slow", "dark", "kind", "hungry", "wise",
     "old", "new", "young", "rich", "purple", "clever", "smart", "strong",
     "warm", "cold", "nice", "good", "clear", "tall", "short", "long", "rare",
@@ -35,8 +37,9 @@ adjective_noun$english <- list(
     "eagle", "cod", "seal", "coot", "penguin", "rat", "bear", "robin", "wren",
     "shark", "pike", "trout", "salmon", "orca", "bat", "snake", "adder", "frog",
     "newt", "duck", "lizard", "mouse", "badger", "oak", "pine", "spruce",
-    "lime", "ash", "beech", "birch", "willow", "aspen", "hazel")
+    "lime", "ash", "beech", "birch", "willow", "aspen", "hazel"
   )
+)
 
 # check for duplicates
 adjective_noun |>

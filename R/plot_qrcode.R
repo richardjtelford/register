@@ -14,8 +14,7 @@ plot_qrcode <- function(x, col = c("white", "black"),
   on.exit(par(old_par), add = TRUE, after = FALSE)
   par(mar = rep(1.1, 4))
   image(z, asp = 1, col = col, axes = FALSE, main = main)
-  if(!missing(passcode)){
+  if (!missing(passcode)) {
     mtext(glue("passcode: {passcode}"), side = 1, line = 0, cex = 1.5)
   }
 }
-

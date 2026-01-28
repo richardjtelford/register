@@ -4,7 +4,8 @@
 #' @param adjective_noun_list A list with adjectives and nouns.
 #' See [adjective_noun].
 #' @details
-#' Random adjective-noun combinations are often used to generate e.g. user names.
+#' Random adjective-noun combinations are used to generate user names or repo
+#' names by github and reddit.
 #' @returns A length-one character vector.
 #' @importFrom purrr map
 #' @export
@@ -17,7 +18,8 @@ random_passcode <- function(adjective_noun_list = adjective_noun$norsk) {
 
 
 #' A list with adjective and nouns
-#'
+#' @docType data
+#' @usage data(adjective_noun)
 #' @format A list
 #' \describe{
 #'   \item{norsk}{A list of Norwegian adjectives and nouns
@@ -25,5 +27,4 @@ random_passcode <- function(adjective_noun_list = adjective_noun$norsk) {
 #'   \item{english}{A list of English adjectives and nouns.}
 
 #' }
-#' @name adjective_noun
-NULL
+"adjective_noun"

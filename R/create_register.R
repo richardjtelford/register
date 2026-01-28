@@ -26,23 +26,22 @@ create_attendence <- function(
 
   # get quiz id
   quiz_id <- quiz$id
+
   # make question contents with passcode
   quiz_question_params <- collate_question_params(answers = passcode)
+
   # create question
   quest <- create_quiz_question(
     canvas = auth,
     course_id = course_id,
     quiz_id = quiz_id,
-    quiz_question_params = quiz_question_params)
+    quiz_question_params = quiz_question_params
+  )
 
   # get url
   quiz_url <- quiz$mobile_url
-
 
   # print qrcode + passcode
   qr_code(quiz_url) |>
     plot_qrcode(main = "Please Register", passcode = passcode)
 }
-
-
-
