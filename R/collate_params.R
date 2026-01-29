@@ -6,28 +6,24 @@
 #' @param title Title of the quiz. Defaults to "Registration \{Date\}"
 #' @param description Description text
 #' @param quiz_type Type of quiz
-#' @param due_at Deadline for quiz. Defaults to 10 minutes in the future.
-#' @param unlock_at Time to open the quiz. Defaults to the current time.
+#' @param due_at Optional. Set using [iso8601()].
+#' @param unlock_at Optional. Set using [iso8601()].
 #' @param \dots Extra parameters. See details
 #' @details More information about each parameter from the
 #' [canvas API documentation](https://developerdocs.instructure.com/services/canvas/resources/quizzes#method.quizzes/quizzes_api.create)
 #' @returns A list
 #' @importFrom glue glue
-#' @importFrom lubridate today now minutes with_tz
+#' @importFrom lubridate today
+#' @importFrom purrr discard
 #' @export
 
 collate_quiz_params <- function(
     title = glue("Registration {today()}"),
     description = "Please register your attendence with the passcode",
     quiz_type = "graded_survey",
-    unlock_at = now(),
-    due_at = now() + minutes(10),
+    unlock_at = NULL,
+    due_at = NULL,
     ...) {
-  # convert due at to correct format
-  due_at <- with_tz(due_at, tzone = "UTC")
-  due_at <- strftime(due_at, "%Y-%m-%dT%H:%M:%S%z")
-  unlock_at <- with_tz(unlock_at, tzone = "UTC")
-  unlock_at <- strftime(unlock_at, "%Y-%m-%dT%H:%M:%S%z")
   # return list
   list(
     title = title,
@@ -36,7 +32,8 @@ collate_quiz_params <- function(
     due_at = due_at,
     unlock_at = unlock_at,
     ...
-  )
+  ) |>
+    discard(is.null)
 }
 
 #' Collate quiz questions parameters
@@ -54,7 +51,7 @@ collate_quiz_params <- function(
 #' Can be a vector or a list with `answer_text` and optionally `answer_score`.
 #' @details More information about each parameter from the
 #' [canvas API documentation](https://developerdocs.instructure.com/services/canvas/resources/quiz_questions#method.quizzes/quiz_questions.create)
-#' @importFrom purrr map
+#' @importFrom purrr map discard
 #' @returns A list
 #' @export
 
@@ -74,7 +71,8 @@ collate_question_params <- function(
     position = position,
     correct_comments = correct_comments,
     incorrect_comments = incorrect_comments
-  )
+  ) |>
+    discard(is.null)
   if (!is.null(answers)) {
     if (is.list(answers)) {
       params$answers <- answers
@@ -84,4 +82,21 @@ collate_question_params <- function(
   }
 
   params
+}
+
+#' ISO8601
+#' @description
+#' Formats date in ISO8601 date time format with timezone.
+#' @param datetime Date-time object (POSIXct class) for
+#' example made with [lubridate::now()].
+#'@param offset Offset period for example made with [lubridate::minutes()].
+#' @importFrom lubridate with_tz now minutes
+#' @export
+iso8601 <- function() {
+  if (!missing(offset)) {
+    datetime <- datetime + offset
+  }
+  datetime <- with_tz(datetime, tzone = "UTC")
+  datetime <- strftime(datetime, "%Y-%m-%dT%H:%M:%S%z")
+  datetime
 }

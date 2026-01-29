@@ -7,6 +7,7 @@
 
 #' @importFrom vvcanvas canvas_authenticate update_quiz
 #' @importFrom qrcode qr_code
+#' @importFrom lubridate now
 #' @importFrom grDevices dev.new
 #' @export
 
@@ -39,19 +40,19 @@ create_attendence <- function(
   )
 
   # publish quiz
-  quiz2 <- update_quiz(
-    canvas = auth,
+  quiz <- activate_quiz(
     course_id = course_id,
     quiz_id = quiz_id,
-    quiz_params = list(published = TRUE)
+    unlock_at = now()
   )
+
 
   # get url
   quiz_url <- quiz$mobile_url
-
   # print qrcode + passcode
   dev.new()
   qr_code(quiz_url) |>
     plot_qrcode(main = "Please Register", passcode = passcode)
-  invisible(list(quiz = quiz, quiz2 = quiz2, question = quest))
+
+  invisible(list(quiz = quiz, question = quest))
 }

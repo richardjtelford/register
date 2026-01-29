@@ -60,7 +60,7 @@ Start by loading the package.
 library(register)
 ```
 
-The function `create_register()` will create a quiz in your course with a question asking for a passcode; activate the quiz with a ten minute deadline; produce a qrcode that links to the quiz and shows the passcode.
+The function `create_attendence()` will create a quiz in your course with a question asking for a passcode; activate the quiz with a ten minute deadline; produce a qrcode that links to the quiz and shows the passcode.
 
 The only argument that needs to be set is `course_id`. 
 You can find this by going to the home page of your course and copying the numbers at the end of the url.
@@ -68,6 +68,14 @@ You can find this by going to the home page of your course and copying the numbe
 ``` r
 create_register(course_id = 57351)
 ```
+
+If you already have a quiz on canvas, you can activate it with `activate_quiz()`
+
+``` r
+activate_quiz(course_id = 57351, quiz_id = 1234)
+```
+
+By default, this will activate the quiz immediately, and set a due date for ten minutes time.
 
 You can also make a barcode for existing quizes.
 

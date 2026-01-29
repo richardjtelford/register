@@ -8,8 +8,8 @@ collate_quiz_params(
   title = glue("Registration {today()}"),
   description = "Please register your attendence with the passcode",
   quiz_type = "graded_survey",
-  unlock_at = now(),
-  due_at = now() + minutes(10),
+  unlock_at = NULL,
+  due_at = NULL,
   ...
 )
 }
@@ -20,9 +20,9 @@ collate_quiz_params(
 
 \item{quiz_type}{Type of quiz}
 
-\item{unlock_at}{Time to open the quiz. Defaults to the current time.}
+\item{unlock_at}{Optional. Set using \code{\link[=iso8601]{iso8601()}}.}
 
-\item{due_at}{Deadline for quiz. Defaults to 10 minutes in the future.}
+\item{due_at}{Optional. Set using \code{\link[=iso8601]{iso8601()}}.}
 
 \item{\dots}{Extra parameters. See details}
 }
