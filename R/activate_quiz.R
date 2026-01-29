@@ -21,7 +21,7 @@
 #' @export
 
 activate_quiz <- function(course_id, quiz_id, unlock_at,
-                          time_open = minutes(10), access_code) {
+                          time_open = minutes(10), access_code = NULL) {
   # authenticate
   auth <- canvas_authenticate()
 

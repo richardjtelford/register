@@ -9,7 +9,7 @@ activate_quiz(
   quiz_id,
   unlock_at,
   time_open = minutes(10),
-  access_code
+  access_code = NULL
 )
 }
 \arguments{
