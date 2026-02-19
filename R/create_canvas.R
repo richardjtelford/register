@@ -44,10 +44,11 @@ create_quiz <- function(canvas, course_id, quiz_params) {
 #' @export
 
 create_quiz_question <- function(
-    canvas,
-    course_id,
-    quiz_id,
-    quiz_question_params) {
+  canvas,
+  course_id,
+  quiz_id,
+  quiz_question_params
+) {
   url <- paste0(
     canvas$base_url, "/api/v1/courses/", course_id,
     "/quizzes/", quiz_id, "/questions"
@@ -70,8 +71,6 @@ create_quiz_question <- function(
   quiz_question <- httr::content(response, "parsed")
   quiz_question
 }
-
-
 
 
 get_quiz_questions <- function(canvas, course_id, quiz_id) {

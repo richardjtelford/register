@@ -18,12 +18,13 @@
 #' @export
 
 collate_quiz_params <- function(
-    title = glue("Registration {today()}"),
-    description = "Please register your attendence with the passcode",
-    quiz_type = "graded_survey",
-    unlock_at = NULL,
-    due_at = NULL,
-    ...) {
+  title = glue("Registration {today()}"),
+  description = "Please register your attendence with the passcode",
+  quiz_type = "graded_survey",
+  unlock_at = NULL,
+  due_at = NULL,
+  ...
+) {
   # return list
   list(
     title = title,
@@ -56,13 +57,14 @@ collate_quiz_params <- function(
 #' @export
 
 collate_question_params <- function(
-    question_name = "qn",
-    question_text = "Please enter the passcode",
-    question_type = "short_answer_question",
-    position = 1,
-    correct_comments = "Thankyou",
-    incorrect_comments = "Please check your passcode carefully",
-    answers = NULL) {
+  question_name = "qn",
+  question_text = "Please enter the passcode",
+  question_type = "short_answer_question",
+  position = 1,
+  correct_comments = "Thankyou",
+  incorrect_comments = "Please check your passcode carefully",
+  answers = NULL
+) {
   # make return list
   params <- list(
     question_name = question_name,
@@ -89,7 +91,7 @@ collate_question_params <- function(
 #' Formats date in ISO8601 date time format with timezone.
 #' @param datetime Date-time object (POSIXct class) for
 #' example made with [lubridate::now()].
-#'@param offset Offset period for example made with [lubridate::minutes()].
+#' @param offset Offset period for example made with [lubridate::minutes()].
 #' @importFrom lubridate with_tz now minutes
 #' @export
 iso8601 <- function() {

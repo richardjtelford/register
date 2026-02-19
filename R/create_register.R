@@ -12,9 +12,10 @@
 #' @export
 
 create_attendence <- function(
-    course_id,
-    passcode = random_passcode(adjective_noun_list = adjective_noun$norsk),
-    quiz_params = collate_quiz_params()) {
+  course_id,
+  passcode = random_passcode(adjective_noun_list = adjective_noun$norsk),
+  quiz_params = collate_quiz_params()
+) {
   # authenticate
   auth <- canvas_authenticate()
 

@@ -7,11 +7,12 @@ Description: Makes a quiz on canvas to register attendance with a qrcode and a p
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Depends: 
     R (>= 3.5)
 LazyData: true
 Imports: 
+    dplyr,
     glue,
     httr,
     lubridate,
