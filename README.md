@@ -60,7 +60,7 @@ Start by loading the package.
 library(register)
 ```
 
-The function `create_attendence()` will create a quiz in your course with a question asking for a passcode; activate the quiz with a ten minute deadline; produce a qrcode that links to the quiz and shows the passcode.
+The function `create_register()` will create a quiz in your course with an access code; activate the quiz with a ten minute deadline; and produce a QR code that links to the quiz and shows the access code.
 
 The only argument that needs to be set is `course_id`. 
 You can find this by going to the home page of your course and copying the numbers at the end of the url.
@@ -78,11 +78,11 @@ activate_quiz(course_id = bio302, quiz_id = 1234)
 
 By default, this will activate the quiz immediately, and set a due date for ten minutes time.
 
-You can also make a barcode for existing quizzes.
+You can also make a QR code for existing quizzes.
 
 ``` r
-qrcode::qr_code(x = "https://mitt.uib.no/courses/57351/quizzes/57912") |> 
-  plot_qrcode(main = "Do this quiz")
+plot_qrcode("https://mitt.uib.no/courses/57351/quizzes/57912", main = "Do this quiz")
 ```
 
+Use `get_course_attendance()` to download the registrations (you can also see this information on canvas). `summarise_attendance()` and `plot_attendance()` with summarise and plot the result. The summarise and plot functions are simple, use them for inspiration if you need something more complex.
 
