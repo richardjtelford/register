@@ -80,7 +80,7 @@ plot_attendance <- function(attendance, lowest = 20) {
   attendance |>
     distinct(.data$name, .data$title) |>
     mutate(n = sum(!is.na(.data$title)), .by = "name") |>
-    mutate(name = factor(.data$name), name = fct_reorder(.data$name, -n)) |>
+    mutate(name = factor(.data$name), name = fct_reorder(.data$name, -.data$n)) |>
     slice_min(.data$n, n = lowest, with_ties = FALSE) |>
     ggplot(aes(x = .data$title, y = .data$name)) +
     geom_raster() +

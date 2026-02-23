@@ -15,10 +15,12 @@ create_register(
 \item{course_id}{id number of the course.
 Go to your course home page and the number is at the end of the url.}
 
-\item{accesscode}{the accesscode}
+\item{accesscode}{the accesscode. Defaults to a four digit code.}
 
 \item{quiz_params}{Quiz parameters.
 You can make these with \code{\link[=collate_quiz_params]{collate_quiz_params()}}}
+
+\item{quiz_id}{Optional id of an existing quiz to activate.}
 }
 \description{
 Create attendance quiz and qr code

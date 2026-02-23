@@ -1,9 +1,10 @@
 #' Create attendance quiz and qr code
 #' @param course_id id number of the course.
 #' Go to your course home page and the number is at the end of the url.
-#' @param accesscode the accesscode
+#' @param accesscode the accesscode. Defaults to a four digit code.
 #' @param quiz_params Quiz parameters.
 #' You can make these with [collate_quiz_params()]
+#' @param quiz_id Optional id of an existing quiz to activate.
 
 #' @importFrom vvcanvas canvas_authenticate update_quiz
 #' @importFrom qrcode qr_code
