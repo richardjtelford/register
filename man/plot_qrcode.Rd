@@ -2,19 +2,27 @@
 % Please edit documentation in R/plot_qrcode.R
 \name{plot_qrcode}
 \alias{plot_qrcode}
-\title{Plot qrcode with passcode}
+\title{Plot qrcode with access code}
 \usage{
-plot_qrcode(x, col = c("white", "black"), main = "title", passcode)
+plot_qrcode(
+  url,
+  col = c("white", "black"),
+  main = "title",
+  code_text = "Access code",
+  accesscode
+)
 }
 \arguments{
-\item{x}{qrcode}
+\item{url}{url to make into a QR code}
 
 \item{col}{colours for the qrcode}
 
 \item{main}{Plot title}
 
-\item{passcode}{passcode}
+\item{code_text}{Access code title}
+
+\item{accesscode}{accesscode}
 }
 \description{
-Plot qrcode with passcode
+Plot qrcode with access code
 }
