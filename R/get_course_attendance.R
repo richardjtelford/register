@@ -10,11 +10,8 @@
 #' @examples
 #' \dontrun{
 #' attendance <- get_course_attendance(course_id = "57351")
-#' attendance |>
-#'   group_by(name) |>
-#'   distinct(title) |>
-#'   separate_wider_delim(title, delim = " ", names = c("title", "date")) |>
-#'   summarise(n = sum(!is.na(date)))
+#' summarise_attendance(attendance)
+#' plot_attendance(attendance)
 #' }
 #' @importFrom vvcanvas canvas_authenticate get_course_quizzes
 #' get_course_students get_quiz_submissions
@@ -55,6 +52,7 @@ get_course_attendance <- function(course_id, pattern = "^Registration") {
 
 
 #' Summarise course attendance
+#' @rdname get_course_attendance
 #'
 #' @param attendance Output of `get_course_attendance()`.
 #' @importFrom dplyr distinct summarise
@@ -68,6 +66,7 @@ summarise_attendance <- function(attendance) {
 }
 
 #' Plot course attendance
+#' @rdname get_course_attendance
 #' @param attendance Output of `get_course_attendance()`.
 #' @param lowest Show the n students with the lowest attendance (to prevent the plot being overwhelming). Use `Inf` to show all students.
 #' @importFrom ggplot2 ggplot aes geom_raster scale_x_discrete theme

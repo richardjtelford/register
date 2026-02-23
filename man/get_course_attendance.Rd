@@ -2,15 +2,25 @@
 % Please edit documentation in R/get_course_attendance.R
 \name{get_course_attendance}
 \alias{get_course_attendance}
+\alias{summarise_attendance}
+\alias{plot_attendance}
 \title{Get course attendance}
 \usage{
 get_course_attendance(course_id, pattern = "^Registration")
+
+summarise_attendance(attendance)
+
+plot_attendance(attendance, lowest = 20)
 }
 \arguments{
 \item{course_id}{id number of the course.
 Go to your course home page and the number is at the end of the url.}
 
 \item{pattern}{Regular expression to identify registration quizzes.}
+
+\item{attendance}{Output of \code{get_course_attendance()}.}
+
+\item{lowest}{Show the n students with the lowest attendance (to prevent the plot being overwhelming). Use \code{Inf} to show all students.}
 }
 \value{
 A data.frame
@@ -21,10 +31,7 @@ Collates attendance records for each student.
 \examples{
 \dontrun{
 attendance <- get_course_attendance(course_id = "57351")
-attendance |>
-  group_by(name) |>
-  distinct(title) |>
-  separate_wider_delim(title, delim = " ", names = c("title", "date")) |>
-  summarise(n = sum(!is.na(date)))
+summarise_attendance(attendance)
+plot_attendance(attendance)
 }
 }
