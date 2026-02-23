@@ -88,4 +88,3 @@ plot_attendance <- function(attendance, lowest = 20) {
     scale_x_discrete(na.translate = FALSE, labels = scales::label_wrap(15)) +
     theme(axis.title = element_blank())
 }
-
