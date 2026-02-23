@@ -4,7 +4,7 @@
 \alias{iso8601}
 \title{ISO8601}
 \usage{
-iso8601()
+iso8601(datetime, offset)
 }
 \arguments{
 \item{datetime}{Date-time object (POSIXct class) for

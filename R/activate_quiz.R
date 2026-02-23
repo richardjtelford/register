@@ -13,7 +13,6 @@
 #' default to ten minutes.
 #' Set to NULL to keep quiz open
 #' @param access_code Optional access code for the quiz
-#' (use as an alternative to setting a passcode within the quiz).
 #' @returns A quiz object (invisible)
 #' @importFrom vvcanvas update_quiz
 #' @importFrom lubridate minutes

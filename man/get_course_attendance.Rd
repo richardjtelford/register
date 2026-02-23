@@ -21,7 +21,8 @@ Collates attendance records for each student.
 \examples{
 \dontrun{
 attendance <- get_course_attendance(course_id = "57351")
-attendance |> group_by(name) |>
+attendance |>
+  group_by(name) |>
   distinct(title) |>
   separate_wider_delim(title, delim = " ", names = c("title", "date")) |>
   summarise(n = sum(!is.na(date)))

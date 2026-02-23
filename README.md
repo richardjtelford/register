@@ -66,25 +66,23 @@ The only argument that needs to be set is `course_id`.
 You can find this by going to the home page of your course and copying the numbers at the end of the url.
 
 ``` r
-create_register(course_id = 57351)
+bio302 <- 57351
+create_register(course_id = bio302)
 ```
 
 If you already have a quiz on canvas, you can activate it with `activate_quiz()`
 
 ``` r
-activate_quiz(course_id = 57351, quiz_id = 1234)
+activate_quiz(course_id = bio302, quiz_id = 1234)
 ```
 
 By default, this will activate the quiz immediately, and set a due date for ten minutes time.
 
-You can also make a barcode for existing quizes.
+You can also make a barcode for existing quizzes.
 
 ``` r
 qrcode::qr_code(x = "https://mitt.uib.no/courses/57351/quizzes/57912") |> 
   plot_qrcode(main = "Do this quiz")
 ```
 
-## Comming soon (maybe)
 
-1) Download register (if canvas does not display the results in a useful way).
-2) ?????

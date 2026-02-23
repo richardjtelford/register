@@ -27,8 +27,7 @@ You can use \code{\link[=iso8601]{iso8601()}} to format the date-time correctly.
 default to ten minutes.
 Set to NULL to keep quiz open}
 
-\item{access_code}{Optional access code for the quiz
-(use as an alternative to setting a passcode within the quiz).}
+\item{access_code}{Optional access code for the quiz}
 }
 \value{
 A quiz object (invisible)

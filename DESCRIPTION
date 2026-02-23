@@ -13,11 +13,15 @@ Depends:
 LazyData: true
 Imports: 
     dplyr,
+    forcats,
+    ggplot2,
     glue,
     httr,
     lubridate,
     purrr,
     qrcode,
+    rlang,
+    scales,
     vvcanvas
 URL: https://github.com/richardjtelford/register
 BugReports: https://github.com/richardjtelford/register/issues

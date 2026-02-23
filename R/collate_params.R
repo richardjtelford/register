@@ -94,7 +94,7 @@ collate_question_params <- function(
 #' @param offset Offset period for example made with [lubridate::minutes()].
 #' @importFrom lubridate with_tz now minutes
 #' @export
-iso8601 <- function() {
+iso8601 <- function(datetime, offset) {
   if (!missing(offset)) {
     datetime <- datetime + offset
   }
