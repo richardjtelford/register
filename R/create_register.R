@@ -14,14 +14,14 @@
 create_register <- function(
   course_id,
   accesscode = random_passcode(adjective_noun_list = adjective_noun$norsk),
-  quiz_params = collate_quiz_params(),
+  quiz_params = digit_code(),
   quiz_id
 ) {
   # authenticate
   auth <- canvas_authenticate()
 
   # make quiz if ID not provided
-  if(missing(quiz_id)) {
+  if (missing(quiz_id)) {
     quiz <- create_quiz(
       canvas = auth,
       course_id = course_id,

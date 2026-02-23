@@ -7,7 +7,7 @@
 create_register(
   course_id,
   accesscode = random_passcode(adjective_noun_list = adjective_noun$norsk),
-  quiz_params = collate_quiz_params(),
+  quiz_params = digit_code(),
   quiz_id
 )
 }

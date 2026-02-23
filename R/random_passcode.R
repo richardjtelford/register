@@ -28,3 +28,15 @@ random_passcode <- function(adjective_noun_list = adjective_noun$norsk) {
 
 #' }
 "adjective_noun"
+
+
+#' Digit code
+#'
+#' @description
+#' Generates a four digit code with leading zeros where necessary
+#' @export
+
+digit_code <- function() {
+  sample(0:9999, size = 1) |>
+    formatC(width = 4, flag = 0)
+}
