@@ -19,7 +19,7 @@
 
 collate_quiz_params <- function(
   title = glue("Registration {today()}"),
-  description = "Please register your attendence with the passcode",
+  description = "Please press submit to register attendence",
   quiz_type = "graded_survey",
   unlock_at = NULL,
   due_at = NULL,
