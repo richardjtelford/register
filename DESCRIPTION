@@ -23,5 +23,5 @@ Imports:
     rlang,
     scales,
     vvcanvas
-URL: https://github.com/richardjtelford/register
+URL: https://github.com/richardjtelford/register, https://richardjtelford.github.io/register/
 BugReports: https://github.com/richardjtelford/register/issues
