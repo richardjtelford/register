@@ -8,6 +8,7 @@ compulsory classes using canvas quizzes.
 You can install the development version of register like so:
 
 ``` r
+
 # install.packages("pak") # install if necessary
 pak::pak("richardjtelford/register")
 ```
@@ -24,6 +25,7 @@ you this again.
 Then open the .Renviron file with
 
 ``` r
+
 usethis::edit_r_environ()
 ```
 
@@ -42,6 +44,7 @@ Save and close this file.
 You can check everything is set up correctly with
 
 ``` r
+
 vvcanvas::canvas_authenticate()
 ```
 
@@ -52,6 +55,7 @@ which will throw an error if your token or url are incorrect.
 Start by loading the package.
 
 ``` r
+
 library(register)
 ```
 
@@ -66,6 +70,7 @@ by going to the home page of your course and copying the numbers at the
 end of the url.
 
 ``` r
+
 bio302 <- 57351
 create_register(course_id = bio302)
 ```
@@ -74,6 +79,7 @@ If you already have a quiz on canvas, you can activate it with
 [`activate_quiz()`](https://richardjtelford.github.io/register/reference/activate_quiz.md)
 
 ``` r
+
 activate_quiz(course_id = bio302, quiz_id = 1234)
 ```
 
@@ -83,6 +89,7 @@ for ten minutes time.
 You can also make a QR code for existing quizzes.
 
 ``` r
+
 plot_qrcode("https://mitt.uib.no/courses/57351/quizzes/57912", main = "Do this quiz")
 ```
 
