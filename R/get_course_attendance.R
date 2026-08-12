@@ -14,7 +14,7 @@
 #' plot_attendance(attendance)
 #' }
 #' @importFrom vvcanvas canvas_authenticate get_course_quizzes
-#' get_course_students get_quiz_submissions
+#'                      get_course_students get_quiz_submissions
 #' @importFrom dplyr mutate left_join join_by filter join_by
 #' @importFrom purrr map2 list_rbind
 #' @importFrom rlang .data
@@ -70,7 +70,7 @@ summarise_attendance <- function(attendance) {
 #' @param attendance Output of `get_course_attendance()`.
 #' @param lowest Show the n students with the lowest attendance (to prevent the plot being overwhelming). Use `Inf` to show all students.
 #' @importFrom ggplot2 ggplot aes geom_raster scale_x_discrete theme
-#' element_blank
+#'                     element_blank
 #' @importFrom dplyr distinct mutate slice_min
 #' @importFrom forcats fct_reorder
 #' @importFrom rlang .data

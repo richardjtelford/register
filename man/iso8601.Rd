@@ -10,7 +10,7 @@ iso8601(datetime, offset)
 \item{datetime}{Date-time object (POSIXct class) for
 example made with \code{\link[lubridate:now]{lubridate::now()}}.}
 
-\item{offset}{Offset period for example made with \code{\link[lubridate:period]{lubridate::minutes()}}.}
+\item{offset}{Offset period for example made with \code{\link[lubridate:minutes]{lubridate::minutes()}}.}
 }
 \description{
 Formats date in ISO8601 date time format with timezone.

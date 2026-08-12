@@ -7,7 +7,6 @@ Description: Makes a quiz on canvas to register attendance with a qrcode and a p
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3
 Depends: 
     R (>= 3.5)
 LazyData: true
@@ -25,3 +24,4 @@ Imports:
     vvcanvas
 URL: https://github.com/richardjtelford/register, https://richardjtelford.github.io/register/
 BugReports: https://github.com/richardjtelford/register/issues
+Config/roxygen2/version: 8.1.0

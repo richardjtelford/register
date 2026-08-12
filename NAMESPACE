@@ -8,42 +8,57 @@ export(create_quiz_question)
 export(create_register)
 export(digit_code)
 export(get_course_attendance)
+export(glue)
 export(iso8601)
+export(minutes)
 export(plot_attendance)
 export(plot_qrcode)
 export(random_passcode)
 export(summarise_attendance)
-importFrom(dplyr,distinct)
-importFrom(dplyr,filter)
-importFrom(dplyr,join_by)
-importFrom(dplyr,left_join)
-importFrom(dplyr,mutate)
-importFrom(dplyr,slice_min)
-importFrom(dplyr,summarise)
+export(today)
+importFrom(dplyr,
+  distinct,
+  filter,
+  join_by,
+  left_join,
+  mutate,
+  slice_min,
+  summarise
+)
 importFrom(forcats,fct_reorder)
-importFrom(ggplot2,aes)
-importFrom(ggplot2,element_blank)
-importFrom(ggplot2,geom_raster)
-importFrom(ggplot2,ggplot)
-importFrom(ggplot2,scale_x_discrete)
-importFrom(ggplot2,theme)
+importFrom(ggplot2,
+  aes,
+  element_blank,
+  geom_raster,
+  ggplot,
+  scale_x_discrete,
+  theme
+)
 importFrom(glue,glue)
 importFrom(grDevices,dev.new)
-importFrom(graphics,image)
-importFrom(graphics,mtext)
-importFrom(graphics,par)
-importFrom(lubridate,minutes)
-importFrom(lubridate,now)
-importFrom(lubridate,today)
-importFrom(lubridate,with_tz)
-importFrom(purrr,discard)
-importFrom(purrr,list_rbind)
-importFrom(purrr,map)
-importFrom(purrr,map2)
+importFrom(graphics,
+  image,
+  mtext,
+  par
+)
+importFrom(lubridate,
+  minutes,
+  now,
+  today,
+  with_tz
+)
+importFrom(purrr,
+  discard,
+  list_rbind,
+  map,
+  map2
+)
 importFrom(qrcode,qr_code)
 importFrom(rlang,.data)
-importFrom(vvcanvas,canvas_authenticate)
-importFrom(vvcanvas,get_course_quizzes)
-importFrom(vvcanvas,get_course_students)
-importFrom(vvcanvas,get_quiz_submissions)
-importFrom(vvcanvas,update_quiz)
+importFrom(vvcanvas,
+  canvas_authenticate,
+  get_course_quizzes,
+  get_course_students,
+  get_quiz_submissions,
+  update_quiz
+)
