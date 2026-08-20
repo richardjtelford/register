@@ -35,11 +35,16 @@ importFrom(ggplot2,
   theme
 )
 importFrom(glue,glue)
-importFrom(grDevices,dev.new)
+importFrom(grDevices,
+  dev.new,
+  dev.off,
+  png
+)
 importFrom(graphics,
   image,
   mtext,
-  par
+  par,
+  strwidth
 )
 importFrom(lubridate,
   minutes,
