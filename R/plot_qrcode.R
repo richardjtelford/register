@@ -11,7 +11,6 @@
 
 plot_qrcode <- function(url, col = c("white", "black"),
                         main = "title", code_text = "Access code", accesscode) {
-
   # make qrcode
   x <- qr_code(url)
   z <- t(x)[, rev(seq_len(ncol(x)))]
@@ -41,7 +40,7 @@ plot_qrcode <- function(url, col = c("white", "black"),
 
 #' @importFrom graphics par strwidth
 max_cex <- function(str, mx = 2) {
-  #work out string width max
-  maxcex <- par('pin')[1]/strwidth(str,'inches')
+  # work out string width max
+  maxcex <- par("pin")[1] / strwidth(str, "inches")
   min(maxcex, mx)
 }

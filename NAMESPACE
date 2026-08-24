@@ -55,8 +55,7 @@ importFrom(lubridate,
 importFrom(purrr,
   discard,
   list_rbind,
-  map,
-  map2
+  map
 )
 importFrom(qrcode,qr_code)
 importFrom(rlang,.data)

@@ -16,7 +16,7 @@
 #' @importFrom vvcanvas canvas_authenticate get_course_quizzes
 #'                      get_course_students get_quiz_submissions
 #' @importFrom dplyr mutate left_join join_by filter join_by
-#' @importFrom purrr map2 list_rbind
+#' @importFrom purrr map list_rbind
 #' @importFrom rlang .data
 #' @export
 
@@ -35,21 +35,24 @@ get_course_attendance <- function(course_id, pattern = "^Registration") {
   students <- get_course_students(canvas = auth, course_id = course_id)
 
   # get submissions for each course
-  attendance <- map2(
-    course_quizzes$id, course_quizzes$title,
-    \(quiz_id, title) {
-      get_quiz_submissions(canvas = auth, course_id = course_id, quiz_id = quiz_id) |>
-        mutate(title = .data$title)
+  attendance <- map(
+    course_quizzes$id,
+    \(quiz_id) {
+      get_quiz_submissions(canvas = auth, course_id = course_id, quiz_id = quiz_id)
     }
   ) |>
-    list_rbind()
+    list_rbind() |>
+    left_join(registration_quizzes, by = join_by(x$quiz_id == y$id))
 
-  attendance <- left_join(students, attendance, by = join_by(.data$id == .data$user_id)) |>
+
+  attendance <- left_join(students, attendance, by = join_by(x$id == y$user_id)) |>
     filter(.data$name != "Test student")
 
   attendance
 }
 
+# declare global variables
+utils::globalVariables(c("x", "y"))
 
 #' Summarise course attendance
 #' @rdname get_course_attendance
